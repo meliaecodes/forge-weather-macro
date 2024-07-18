@@ -1,0 +1,27 @@
+modules:
+  macro:
+    - key: forge-weather-macro-hello-world-macro
+      resource: main
+      render: native
+      resolver:
+        function: resolver
+      title: forge-weather-macro
+      config: true
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  runtime:
+    name: nodejs18.x
+  id: <replace_me>
+permissions:
+  scopes: []
+  external:
+    images:
+      - 'https://openweathermap.org'
+    fetch:
+      backend:
+        - api.openweathermap.org
