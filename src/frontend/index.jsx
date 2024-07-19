@@ -56,7 +56,7 @@ const App = () => {
       <Box xcss={containerStyles}>
           <Heading as="h2">The Weather</Heading>
           <Text><Strong>Location:</Strong> {location ? (`${location.city}, ${location.country}`) : `Please edit the macro to enter your location`}</Text>
-          <Inline>
+          { weather ? <Inline>
             <Box xcss={containerStyles}>
               <Image src={weather ? (`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`) : "https://openweathermap.org/img/wn/01d@2x.png"} alt={weather ? weather.weather[0].description : "Loading"} />
             </Box>
@@ -65,7 +65,7 @@ const App = () => {
               <Text><Strong>Feels like:</Strong> {weather ? weather.main.feels_like : 'Loading...'} degrees Celcius</Text>
               <Text><Strong>Humidity:</Strong> {weather ? weather.main.humidity : 'Loading...'}%</Text>
             </Box >
-          </Inline>
+          </Inline> : ` `}
       </Box>
   );
 };
